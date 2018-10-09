@@ -1,0 +1,24 @@
+p {
+  margin: 0;
+  font-size: 12px;
+  width: 100%;
+}
+.card-body {
+  padding: 0;
+}
+#sizeGmailSkype {
+  font-size: 13.5px;
+}
+.captain {
+  color: rgb(211, 161, 24);
+}
+.user {
+  color: black;
+}
+.FloatRight {
+  float: right;
+}
+#formatImg {
+  width: 130px;
+  height: 130px;
+}

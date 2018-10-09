@@ -1,0 +1,78 @@
+.logo {
+  height: 350px;
+  font-size: 150px;
+  font-weight: 1000;
+  padding-top: 80px;
+  color: rgba(255, 255, 255, 0.904);
+}
+.item-solution {
+  font-size: 40px;
+  margin-top: -40px;
+  font-weight: bold;
+  color: #416272;
+  background-color: rgba(209, 218, 218, 0.164);
+}
+.mission {
+  font-size: 18px;
+}
+.icon {
+  background-color: rgba(248, 250, 250, 0.15);
+}
+.icon i {
+  margin-top: 10px; 
+  font-size: 55px;
+}
+.icon p {
+  margin-bottom: 5px; 
+}
+.color-background {
+  float: left;
+  font-family: "Helvetica Neue", "Helvetica", "ヒラギノ角ゴ Pro W3",
+    "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", arial,
+    sans-serif;
+  height: 850px;
+  background: radial-gradient(circle, rgb(241, 235, 235) 10%, #336077 80%);
+  background: -moz-radial-gradient(circle, rgb(241, 235, 235) 10%, #336077 80%);
+  background: -webkit-radial-gradient(
+    circle,
+    rgb(241, 235, 235) 10%,
+    #336077 80%
+  );
+  background: -o-radial-gradient(circle, rgb(241, 235, 235) 10%, #336077 80%);
+}
+.fas, .fab {
+  padding: 20px;
+  font-size: 50px;
+  color: #336077;
+  padding-bottom: 0px;
+}
+.author {
+  margin-top: 30px;
+}
+.about {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  font-size: 35px;
+}
+.about span {
+  color: #416272;
+  font-weight: bold;
+}
+.loading-icon {
+  padding: 10px;
+}
+.button:hover {
+  background-color: #336077;
+}
+.button {
+  color: #336077;
+  border: 1px solid #336077;
+  padding: 5px;
+  font-weight: bold;
+  padding-left: 20px;
+  font-size: 23px;
+  padding-right: 20px;
+}
+.text-center i{
+  cursor: pointer;
+}

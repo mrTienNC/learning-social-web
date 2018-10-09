@@ -1,0 +1,9 @@
+.tableEmail {
+  margin-top: -15px;
+}
+.tableEmail li:hover {
+  cursor: pointer;
+}
+#font {
+  z-index: 1;
+}

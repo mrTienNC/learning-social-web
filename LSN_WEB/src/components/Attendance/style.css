@@ -1,0 +1,77 @@
+.wrapper {
+  width: 100%;
+  padding: 50px 15px;
+  box-shadow: 1px 1px 1px 1px #ccc;
+}
+.wrapper .search {
+  margin-bottom: 30px;
+}
+.wrapper .list-attendance {
+  width: 100%;
+  border-left: 3px solid #1B1464;
+  margin-left: 15px;
+  height: 60px;
+}
+.wrapper .list-attendance .times {
+  width: 30%;
+  height: 60px;
+  position: relative;
+  line-height: 60px;
+  float: left;
+  padding: 12px 10px;
+}
+.wrapper .list-attendance .times::after {
+  width: 10px;
+  content :"";
+  position: absolute;
+  top: 45%;
+  left: -7px;
+  height: 10px;
+  display: block;
+  background-color: #0652DD;
+  border-radius: 50%;
+}
+.wrapper .list-attendance .times h5 {
+  font-size: 14px;
+  width: 100%;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dc3545 !important;
+}
+.wrapper .list-attendance .content {
+  width: 65%;
+  height: 40px;
+  margin: 10px 0px;
+  padding-left: 20px;
+  line-height: 40px;
+  float: left;
+  box-shadow: 1px 1px 1px 1px #dbdbdb;
+  position: relative;
+}
+.wrapper .list-attendance .content .toltalAttendance {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+}
+
+@media screen and (max-width: 991px) { 
+  .wrapper .list-attendance {
+    border: none;
+    margin-left: 0px;
+    margin-left: -15px;
+  }
+  .wrapper .list-attendance .times {
+    display: none;
+  }
+  .wrapper .list-attendance .content {
+    width: 100%;
+    margin-left: 0px;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 440px) { 
+  .wrapper .list-attendance .content .date {
+    display: none;
+  }
+}

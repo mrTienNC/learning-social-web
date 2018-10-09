@@ -1,0 +1,40 @@
+p {
+  margin: 0;
+  font-size: 12px;
+  width: 100%;
+}
+.card-body {
+  padding: 0;
+}
+.media-body {
+  width: 90px;
+}
+#sizeGmailSkype {
+  font-size: 14.5px;
+}
+.captain {
+  color: rgb(211, 161, 24);
+}
+.user {
+  color: black;
+}
+.user > div:last-child {
+  float: right;
+}
+.user > div:last-child i {
+  color: green;
+  cursor: pointer;
+}
+.user > div:first-child {
+  float: left;
+}
+div#clearBoth {
+  clear: both;
+}
+.FloatRight {
+  float: right;
+}
+#formatImg {
+  width: 130px;
+  height: 130px;
+}

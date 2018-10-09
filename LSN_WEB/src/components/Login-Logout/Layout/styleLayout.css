@@ -1,0 +1,29 @@
+.layout {
+  position: relative;
+}
+.first-child {
+  z-index: 2;
+  position: absolute;
+  margin-top: 21.5%;
+  margin-left: 43%;
+}
+.last-child {
+  position: absolute;
+  z-index: 1;
+  height: auto;
+  width: 100%;
+}
+#routerLink {
+  background: #336077;
+  border: #336077 1px solid;
+}
+#routerLink a{
+  text-decoration: none;
+  color: #fff;
+}
+#routerLink:hover {
+  background-color: #fff;
+}
+#routerLink:hover a {
+  color: #336077;
+}

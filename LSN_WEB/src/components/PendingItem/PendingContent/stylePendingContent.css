@@ -1,0 +1,59 @@
+h3#formatH3 {
+  color: rgb(7, 99, 160);
+}
+h3#formatH3 div:first-child {
+  float: left;
+}
+h3#formatH3 div:last-child {
+  float: right;
+  font-size: 22px;
+}
+h3#formatH3 div:last-child i:first-child {
+  color: rgb(51, 255, 0);
+  cursor: pointer;
+}
+h3#formatH3 div:last-child i:last-child {
+  color: rgb(255, 38, 0);
+  cursor: pointer;
+}
+div#clearBoth {
+  clear: both;
+}
+img {
+  width: 100%;
+}
+img#imgFormat {
+  width: 210px;
+  height: 256px
+}
+#imgFormat-2 {
+  width: 740px;
+  height: 256px
+}
+.b-media-aside {
+  position: relative;
+}
+#imformation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+img#userAvatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+#dateTime {
+  font-size: 12px;
+}
+#ViewAll {
+	text-align: right;
+	color: rgb(20, 105, 161);
+	cursor: pointer;
+}
+#ReduceText {
+	text-align: right;
+	color: rgb(20, 105, 161);
+	cursor: pointer;
+}
