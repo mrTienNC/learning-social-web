@@ -1,4 +1,4 @@
-# fr.04-fe-mock-project-team-1
+# learning social netword project
 
 > A Learning Social Network
 
