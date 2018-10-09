@@ -1,8 +1,8 @@
 {
-  "name": "fr.04-fe-mock-project-team-1",
+  "name": "Learning social netword",
   "version": "1.0.0",
   "description": "A Learning Social Network",
-  "author": "NTQ-Solution",
+  "author": "TienNC",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
