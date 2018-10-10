@@ -1,30 +1,83 @@
 <template>
-  <b-container fluid class="bv-example-row bv-example-row-flex-cols color-background">
-      <b-row  class=" text-center" >
-        <b-col  class=" logo"> NTQ-LSN</b-col>
-        <b-col md=12 class=" item-solution"> Solution</b-col>
-        <b-col md=12 class=" p-4 mission"> {{mission}}</b-col>
-        <b-col md=12 >
-          <b-button variant="outline-primary" class="button" @click="login">Login</b-button>
-          <p class="loading-icon" >
-            <i v-if="iconLogin" class="fa fa-spinner fa-spin " style="font-size:35px"></i>
-          </p>
-        </b-col>
-        <b-col md=12 class="about">
-          About<span> Our</span>
-        </b-col>
-        <b-col md=12 class="icon">
-          <b-container>
-            <b-row class="text-center">
-              <b-col offset="2" md="2"><i class="fa fa-address-book"></i><p>News</p> </b-col>
-              <b-col md="2"><i class="fa fa-anchor"></i><p>Success</p></b-col>
-              <b-col md="2"><i class="fa fa-ambulance"></i><p>Help</p></b-col>
-              <b-col md="2"><i class="fa fa-envelope"></i><p>Support</p></b-col>
-            </b-row>
-          </b-container>
-        </b-col>
-        <b-col md=12 class="author">&#169; Project_Team_I</b-col>
-      </b-row>
+   <b-container fluid class="bv-example-row bv-example-row-flex-cols color-background">
+    <b-row class="login-container">
+       <b-container>
+        <b-row>
+            <b-col md=6 >
+              <a href="/" class="header-logo">LSN</a>
+            </b-col>
+              <b-col md=5 >
+                <b-row style="margin-top : 0.5em; align-item : center;">
+                  <b-col md=6>
+                    <span class="email">Email</span> <input type="email" v-model="email">
+                  </b-col>
+                  <b-col md=6>
+                    <span class="password">Password</span> <input type="password" v-model="password">
+                  </b-col>
+                </b-row>
+              </b-col>
+            <b-col md=1 >
+              <b-button variant="outline-primary" class="button" @click="login">Login</b-button>
+              <p class="loading-icon" >
+                <i v-if="iconLogin" class="fa fa-spinner fa-spin " style="font-size:35px"></i>
+              </p>
+            </b-col>
+        </b-row>
+       </b-container>
+    </b-row>
+     <b-container>
+        <b-row  class=" text-left" >
+          <b-col md="6">
+            <b-container class="presentation">
+              <b-row>
+                <b-row class=" logo">Learning Social Network</b-row>
+                <b-row><img src="../../../assets/presentation.png" alt="presentation"></b-row>
+                <!-- <p class="p-4 mission">{{mission}}</p> -->
+              </b-row>
+            </b-container>
+          </b-col>
+          <b-col md="6">
+            <b-container class="registration">
+              <b-row class="registry-text">
+               <b-col md=3>
+                 <h2>Registry</h2>
+                 <p>Free for everyone</p>
+               </b-col>
+              </b-row>
+              <b-row class="registry-name">
+               <b-col md=5>
+                 <input type="text" v-model="firstName" placeholder="First Name">
+               </b-col>
+               <b-col md=5 offset=1>
+                  <input type="text" v-model="lastName" placeholder="Last Name">
+               </b-col>
+              </b-row>
+              <b-row class="registry-email">
+                <b-col md=12><input type="email" v-model="emailRegistry" placeholder="Email"></b-col>
+              </b-row>
+              <b-row class="registry-password">
+                <b-col md=12><input type="password" v-model="passwordRegistry" placeholder="Password"></b-col>
+              </b-row>
+              <b-row class="registry-birthday">
+                <b-col md=12><input type="date"></b-col>
+              </b-row>
+              <b-row class="registry-gender">
+                <b-col md=12>
+                  <b-form-radio-group id="gender" v-model="gender" name="gender" plain>
+                    <b-form-radio value="1">Male</b-form-radio>
+                    <b-form-radio value="2">Female</b-form-radio>
+                  </b-form-radio-group>
+                </b-col>
+              </b-row>
+              <b-row class="registry-button">
+                <b-col md=12>
+                  <b-button variant="success" @click="registry">Registration</b-button>
+                </b-col>
+              </b-row>
+            </b-container>
+          </b-col>
+        </b-row>
+     </b-container>
     <b-modal v-model="checkNotUser">
       {{message}}
     </b-modal>
@@ -41,7 +94,7 @@ export default {
       checkNotUser: false,
       iconLogin: false,
       message: '',
-      mission: 'NTQ Solution is a Vietnamese software development company providing offshore development services such as mobile and web applications as well as other essential software services for businesses.',
+      mission: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     };
   },
   methods: {
@@ -92,5 +145,6 @@ export default {
 };
 </script>
 <style >
+  @import url('https://fonts.googleapis.com/css?family=Cabin|K2D|Open+Sans');
   @import "./styleLogin.css";
 </style>
