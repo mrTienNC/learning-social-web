@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   getCookie(name) {
     const value = `; ${document.cookie}`;

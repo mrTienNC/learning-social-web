@@ -9,10 +9,10 @@
               <b-col md=5 >
                 <b-row style="margin-top : 0.5em; align-item : center;">
                   <b-col md=6>
-                    <span class="email">Email</span> <input type="email" v-model="email">
+                    <span class="email">Email</span> <input type="email" v-model="user.email">
                   </b-col>
                   <b-col md=6>
-                    <span class="password">Password</span> <input type="password" v-model="password">
+                    <span class="password">Password</span> <input type="password" v-model="user.password">
                   </b-col>
                 </b-row>
               </b-col>
@@ -46,24 +46,24 @@
               </b-row>
               <b-row class="registry-name">
                <b-col md=5>
-                 <input type="text" v-model="firstName" placeholder="First Name">
+                 <input type="text" v-model="register.firstName" placeholder="First Name">
                </b-col>
                <b-col md=5 offset=1>
-                  <input type="text" v-model="lastName" placeholder="Last Name">
+                  <input type="text" v-model="register.lastName" placeholder="Last Name">
                </b-col>
               </b-row>
               <b-row class="registry-email">
-                <b-col md=12><input type="email" v-model="emailRegistry" placeholder="Email"></b-col>
+                <b-col md=12><input type="email" v-model="register.email" placeholder="Email"></b-col>
               </b-row>
               <b-row class="registry-password">
-                <b-col md=12><input type="password" v-model="passwordRegistry" placeholder="Password"></b-col>
+                <b-col md=12><input type="password" v-model="register.password" placeholder="Password"></b-col>
               </b-row>
               <b-row class="registry-birthday">
-                <b-col md=12><input type="date"></b-col>
+                <b-col md=12><input type="date" v-model="birthday"></b-col>
               </b-row>
               <b-row class="registry-gender">
                 <b-col md=12>
-                  <b-form-radio-group id="gender" v-model="gender" name="gender" plain>
+                  <b-form-radio-group id="gender" v-model="register.gender" name="gender" plain>
                     <b-form-radio value="1">Male</b-form-radio>
                     <b-form-radio value="2">Female</b-form-radio>
                   </b-form-radio-group>
@@ -84,67 +84,73 @@
   </b-container>
 </template>
 <script>
-import firebase from '../../../firebase/firebase';
-import cookie from '../../../services/cookie';
-import api from '../../../services/api';
+import firebase from "../../../firebase/firebase";
+import cookie from "../../../services/cookie";
+import api from "../../../services/api";
+import moment from "../../../services/get-date.js";
+import route from "../../../router/index.js";
 
 export default {
   data() {
     return {
       checkNotUser: false,
       iconLogin: false,
-      message: '',
-      mission: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      message: "",
+      mission:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      user: {
+        email: "",
+        password: ""
+      },
+      birthday: "",
+      register: {
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        birthday: 0,
+        gender: 1
+      },
+      data: []
     };
   },
   methods: {
     login() {
-      this.loadingIcon(true);
-      firebase
-        .login()
-        .then((result) => {
-          if (result.user.email.indexOf('ntq-solution.com.vn') > -1) {
-            const user = {
-              email: result.user.email,
-              fullName: result.user.displayName,
-              avatar: result.user.photoURL,
-            };
-            this.postData(user);
-          } else {
-            this.loginFalse('Rất tiếc bạn không có quyền truy cập vào hệ thống! :(');
-          }
-        })
-        .catch(() => {
-          this.loginFalse('Đăng nhập thất bại! :(');
-        },
-        );
+      var md5 = require("md5");
+      this.user.password = md5(this.user.password);
+      api.postAuth("ums/v1/usersessions", this.user).then(response => {
+        localStorage.setItem("userId", response.userId);
+        localStorage.setItem("userName", response.userName);
+        cookie.setCookie("token", response.token);
+        this.directional();
+      });
     },
-    postData(user) {
-      api
-        .postAuth('/auth', user)
-        .then((auth) => {
-          localStorage.setItem('idUser', auth.idUser);
-          cookie.setCookie('accessToken', auth.accessToken);
-          this.directional();
-        },
-        );
+    registry() {
+      this.register.birthday = moment.formatDateToLong(this.birthday);
+      api.postAuth("ums/v1/users", this.register).then(response => {
+        this.data = response.data;
+        localStorage.setItem("userId", data.userId);
+        localStorage.setItem("userName", data.userName);
+        localStorage.setItem("userAvatarPath", data.userAvatarPath);
+        cookie.setCookie("token", data.token);
+        this.directional();
+      });
     },
     loginFalse(e) {
       this.loadingIcon(false);
       this.checkNotUser = true;
       this.message = e;
-      firebase.logout();
     },
     directional() {
-      this.$router.replace('home');
+      this.$router.replace("home");
     },
     loadingIcon(e) {
       this.iconLogin = e;
-    },
-  },
+    }
+  }
 };
 </script>
 <style >
-  @import url('https://fonts.googleapis.com/css?family=Cabin|K2D|Open+Sans');
-  @import "./styleLogin.css";
+@import url("https://fonts.googleapis.com/css?family=Cabin|K2D|Open+Sans");
+@import "./styleLogin.css";
 </style>
