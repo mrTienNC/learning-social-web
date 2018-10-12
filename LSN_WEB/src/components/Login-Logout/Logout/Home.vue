@@ -1,123 +1,93 @@
 <template>
   <b-container fluid class="containerPage p-0">
-    <b-navbar class="sticky" id="zIndexMenu" toggleable="xl" type="dark">
+       <b-navbar toggleable="md" type="dark" variant="info" class="navbar-header">
+
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-      <b-navbar-brand href="#" class="p-0">
-        <router-link id="logo" :to="{name : 'home'}">
-          <span @click="layoutCheck = true">
-            <i class="fa fa-home"></i> NTQ-LSN
-          </span>
-        </router-link>
-      </b-navbar-brand>
+
+      <b-navbar-brand href="/home" class="logo">LSN</b-navbar-brand>
+        <b-nav-form class="form_input">
+          <b-form-input size="md" class="mr-md-5" type="text" placeholder="Search"/>
+
+        </b-nav-form>
       <b-collapse is-nav id="nav_collapse">
-        <b-navbar-nav>
-          <b-nav-item-dropdown @click="getCourse" text="My course" class="list-group">
-            <b-dropdown-item href="#" v-for="(data,key) in orderBy(dataClass, 'name') " :key="key">
-              <router-link to="{name: 'Content', params:{id: data.id}}">
-                <span @click="layoutCheck = false">{{data.name}}</span>
-              </router-link>
-            </b-dropdown-item>
-          </b-nav-item-dropdown>
-          <b-nav-item id="option" href="#">Help</b-nav-item>
-          <b-nav-item id="option" href="#">Contact</b-nav-item>
-          <b-nav-item id="option" href="#">FAQ</b-nav-item>
-        </b-navbar-nav>
+        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-1" id="input" type="text" />
-            <b-button size="sm"  class="my my-sm-0" type="button">Search</b-button>
-          </b-nav-form>
-          <b-nav-item-dropdown class="user" >
-            <template slot="button-content" >
-              <span><img id="avatar" v-bind:src= "user.photoURL"></span>
-              <span id="user">{{user.displayName}}</span>
+         <b-navbar-brand href="#">Profile</b-navbar-brand>
+         <b-navbar-brand href="/home">Home</b-navbar-brand>
+
+          <b-nav-item-dropdown right>
+            <!-- Using button-content slot -->
+            <template slot="button-content">
+              <em><span class="caret"></span></em>
             </template>
-            <b-dropdown-item href="#" >
-                <router-link :to="{name : 'home'}" class="routerLink">
-                  <span @click="layoutCheck = true"><i class="fa fa-home"></i> Home</span>
-                </router-link>
-            </b-dropdown-item>
-            <b-dropdown-item href="#">
-              <router-link :to="{name : 'ListCourse'}" class="routerLink">
-                <span @click="layoutCheck = false"><i class="fa fa-list"></i> List course of LSN</span>
-              </router-link>
-            </b-dropdown-item>
-            <b-dropdown-item href="#">
-              <router-link :to="{name : 'Profile'}" class="routerLink">
-                <span @click="layoutCheck = false"><i class="fa fa-user"></i> View Profile</span>
-              </router-link>
-            </b-dropdown-item>
-            <b-dropdown-item href="#" @click="logout" class="routerLink">
-              <i class="fa fa-sign-out" ></i> Logout
-            </b-dropdown-item>
+            <b-dropdown-item href="#">Setting</b-dropdown-item>
+            <b-dropdown-item @click="logout">Signout</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
     <router-view></router-view>
-    <Layout :layoutCheck="layoutCheck" v-on:TurnOff="layoutCheck = $event"></Layout>
+    <b-row>
+      <b-col md=3>
+        <b-container>
+          <div class="profile">
+            <div class="row">
+            <div class="col-md-4 profile_avatar">
+               <img src="../../../assets/avatar.jpg" alt="">
+            </div>
+            <div class="profile_name col-md-8">
+              <a href="#">TienNC</a>
+            </div>
+            </div>
+          </div>
+        </b-container>
+        GROUP AND AVATAr
+      </b-col>
+      <b-col md=6>
+        BUZZ
+      </b-col>
+      <b-col md=3>
+        Event
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 <script>
-import api from '../../../services/api';
-import firebase from '../../../firebase/firebase';
-import cookie from '../../../services/cookie';
-import Layout from '../Layout/Layout.vue';
+import api from "../../../services/api";
+import firebase from "../../../firebase/firebase";
+import cookie from "../../../services/cookie";
+import Layout from "../Layout/Layout.vue";
 
 export default {
   components: {
-    Layout,
+    Layout
   },
   data() {
     return {
-      user: '',
-      dataClass: [],
+      user: "",
+      data: [],
       subMenu: false,
-      layoutCheck: false,
+      layoutCheck: true
     };
   },
-  created() {
-    const currentUser = firebase.currentUser();
-    const accessToken = cookie.getCookie('accessToken');
-    if (currentUser && accessToken) {
-      this.user = currentUser;
-    } else if (currentUser && !accessToken) {
-      this.logout();
-    }
-    this.getCourse();
-    if (this.$router.history.current.path === '/home') {
-      this.layoutCheck = true;
-    }
-  },
   methods: {
+    profile() {},
     logout() {
-      firebase
-        .logout()
-        .then(() => {
-          api.post('/logout');
-          this.deleteTokenInCookie();
-          this.routerLinkHome();
-        },
-        );
-    },
-    getCourse() {
-      api
-        .get('/courses-user-active')
-        .then((e) => {
-          this.dataClass = e;
-        });
+      api.post("/logout" + localStorage.getItem("token"));
+      this.deleteTokenInCookie();
+      this.routerLinkHome();
     },
     deleteTokenInCookie() {
       localStorage.clear();
-      cookie.deleteCookie('accessToken');
+      cookie.deleteCookie("token");
     },
     routerLinkHome() {
-      this.$router.replace('/');
-    },
-  },
+      this.$router.replace("/");
+    }
+  }
 };
 </script>
 <style scoped>
-@import './styleHome.css';
-
+@import url("https://fonts.googleapis.com/css?family=Cabin|K2D|Open+Sans");
+@import "./styleHome.css";
 </style>

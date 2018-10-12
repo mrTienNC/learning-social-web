@@ -6,7 +6,7 @@ const cookie = require('./cookie');
 const api = 'http://192.168.2.202:8080/';
 
 function getHeaders() {
-    const token = cookie.getCookie('Authorization');
+    const token = cookie.getCookie('token');
     const headers = {
         Authorization: token,
         'Content-Type': 'application/json',
@@ -20,7 +20,19 @@ module.exports = {
         return axios.post(api + url, params)
             .then(response => this.checkResponse(response));
     },
-    get(url, params = {}) {
+    getNoParam(url) {
+        return axios.get(api + url, {
+                headers: getHeaders()
+            })
+            .then(response => this.checkResponse(response));
+    },
+    get(url, params) {
+        return axios.get(api + url, prams, {
+                headers: getHeaders()
+            })
+            .then(response => this.checkResponse(response));
+    },
+    getWithParam(url, params = {}) {
         return axios.get(api + url, {
                 headers: getHeaders(),
                 params

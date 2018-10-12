@@ -130,7 +130,7 @@ export default {
       api.postAuth("ums/v1/users", this.register).then(response => {
         this.data = response.data;
         localStorage.setItem("userId", data.userId);
-        localStorage.setItem("userName", data.userName);
+        localStorage.setItem("userName", data.name);
         localStorage.setItem("userAvatarPath", data.userAvatarPath);
         cookie.setCookie("token", data.token);
         this.directional();
