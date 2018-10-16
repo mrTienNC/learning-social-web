@@ -27,29 +27,17 @@
       </b-collapse>
     </b-navbar>
     <router-view></router-view>
-    <b-row>
-      <b-col md=3>
-        <b-container>
-          <div class="profile">
-            <div class="row">
-            <div class="col-md-4 profile_avatar">
-               <img src="../../../assets/avatar.jpg" alt="">
-            </div>
-            <div class="profile_name col-md-8">
-              <a href="#">TienNC</a>
-            </div>
-            </div>
-          </div>
-        </b-container>
-        GROUP AND AVATAr
-      </b-col>
-      <b-col md=6>
-        BUZZ
-      </b-col>
-      <b-col md=3>
-        Event
-      </b-col>
-    </b-row>
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <leftbar></leftbar>
+      </div>
+      <div class="col-md-6 content">
+
+      </div>
+      <div class="col-md-3 rightbar">
+        <rightbar></rightbar>
+      </div>
+    </div>
   </b-container>
 </template>
 <script>
@@ -57,10 +45,14 @@ import api from "../../../services/api";
 import firebase from "../../../firebase/firebase";
 import cookie from "../../../services/cookie";
 import Layout from "../Layout/Layout.vue";
+import Leftbar from "../Leftbar/Leftbar.vue";
+import Rightbar from "../Rightbar/Rightbar.vue";
 
 export default {
   components: {
-    Layout
+    Layout,
+    Leftbar,
+    Rightbar
   },
   data() {
     return {

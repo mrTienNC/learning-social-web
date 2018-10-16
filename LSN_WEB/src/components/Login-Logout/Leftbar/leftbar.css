@@ -1,0 +1,67 @@
+.col-md-4.profile_avatar[data-v-a3ae0a90] {}
+
+.col-md-4.profile_avatar[data-v-a3ae0a90][data-v-a3ae0a90][data-v-a3ae0a90][data-v-a3ae0a90]::before {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    content: '';
+    background: #1688ea;
+    border-radius: 50%;
+    border: solid 5px white;
+    top: 75%;
+    left: 60%;
+}
+
+.profile {
+    position: relative;
+}
+
+.profile_name.col-md-8 {
+    font-size: 20px;
+    margin: auto 0;
+    font-family: K2D;
+    text-decoration: blink;
+}
+
+.profile_name a {
+    text-decoration: blink;
+    font-size: 25px;
+}
+
+.col-md-4.profile_avatar img[data-v-a3ae0a90][data-v-a3ae0a90] {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 1.5em 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: 2em;
+}
+
+.category ul li {
+    list-style: none;
+    line-height: 2em;
+    letter-spacing: 0.15em;
+}
+
+.category ul li i {
+    margin-right: 1em;
+    font-size: 20px;
+}
+
+.category ul {
+    margin: 2.5em auto;
+    padding-left: 2em;
+}
+
+.category ul li a {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: K2D, sans-serif;
+    text-decoration: blink;
+}
+
+.category ul li a[data-v-a3ae0a90]:hover {
+    color: currentColor;
+    transition: 0.5s;
+}

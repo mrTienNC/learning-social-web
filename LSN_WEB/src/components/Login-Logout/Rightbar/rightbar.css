@@ -1,0 +1,54 @@
+.col-md-3.rightbar {
+    margin-top: 2em;
+}
+
+.col-md-3.rightbar legend {
+    font-family: K2D, sans-serif;
+    font-size: 2em;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.event {
+    width: 300px;
+    height: auto;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    margin-top: 5em;
+}
+
+.col-md-3.rightbar legend[data-v-1968ba04] {
+    font-family: K2D, sans-serif;
+    font-size: 2em;
+    letter-spacing: 5px;
+    font-weight: 600;
+    color: cornflowerblue;
+}
+
+.col-md-3.rightbar::before {
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 2px;
+    background: black;
+    bottom: 0;
+    left: 0;
+}
+
+.col-md-3.rightbar {
+    margin-top: 2em;
+    position: relative;
+}
+
+.event-name a {
+    font-size: 20px;
+    text-decoration: blink;
+    letter-spacing: 5px;
+    line-height: 2em;
+}
+
+.event-content {
+    font-family: sans-serif;
+    font-size: 105%;
+    line-height: 2em;
+}
