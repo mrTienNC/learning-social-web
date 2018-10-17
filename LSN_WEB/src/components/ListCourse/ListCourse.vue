@@ -56,42 +56,42 @@
   </div>
 </template>
 <script>
-import CreatCourse from './creatCourse';
-import Notification from '../notification';
-import api from '../../services/api';
-import '../../../node_modules/jquery-validation/dist/jquery.validate';
+import CreatCourse from "./creatCourse";
+import Notification from "../notification";
+import api from "../../services/api";
+import "../../../node_modules/jquery-validation/dist/jquery.validate";
 
 export default {
   components: {
     Notification,
-    CreatCourse,
+    CreatCourse
   },
   data() {
     return {
       courses: [],
-      today: '',
-      message: ' ',
+      today: "",
+      message: " "
     };
   },
   methods: {
-    getCourse() {
-      api
-        .get('/courses')
-        .then((courses) => {
-          this.courses = courses.reverse();
-        });
-    },
-    createCourse(value, message) {
-      this.courses.unshift(value);
-      this.message = message;
-      this.$refs.alert.show();
-    },
-  },
-  created() {
-    this.getCourse();
-  },
+    // getCourse() {
+    //   api
+    //     .get('/courses')
+    //     .then((courses) => {
+    //       this.courses = courses.reverse();
+    //     });
+    // },
+    // createCourse(value, message) {
+    //   this.courses.unshift(value);
+    //   this.message = message;
+    //   this.$refs.alert.show();
+    // },
+  }
+  // created() {
+  //   this.getCourse();
+  // },
 };
 </script>
 <style scoped>
-@import './style.css';
+@import "./style.css";
 </style>
