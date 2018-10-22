@@ -27,7 +27,7 @@
       </b-collapse>
     </b-navbar>
     <router-view></router-view>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-3 sidebar">
         <leftbar></leftbar>
       </div>
@@ -37,7 +37,7 @@
       <div class="col-md-3 rightbar">
         <rightbar></rightbar>
       </div>
-    </div>
+    </div> -->
   </b-container>
 </template>
 <script>
@@ -47,6 +47,7 @@ import cookie from "../../../services/cookie";
 import Layout from "../Layout/Layout.vue";
 import Leftbar from "../Leftbar/Leftbar.vue";
 import Rightbar from "../Rightbar/Rightbar.vue";
+import Timeline from "../Timeline/Timeline.vue";
 
 export default {
   components: {

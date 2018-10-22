@@ -12,6 +12,7 @@ import Pending from '../components/PendingItem/PendingItem/PendingItem';
 import Profile from '../components/Profile/Profile';
 import Attendance from '../components/Attendance/Attendance';
 import Settings from '../components/Settings/Settings';
+import Timeline from '../components/Login-Logout/Timeline/Timeline.vue';
 
 Vue.use(Router);
 
@@ -31,6 +32,14 @@ const router = new Router({
             name: 'home',
             component: Home,
             children: [{
+                    path: '/',
+                    name: 'Timeline',
+                    component: Timeline,
+                    meta: {
+                        requiresAuth: true,
+                    },
+                },
+                {
                     path: 'listCourse',
                     name: 'ListCourse',
                     component: ListCourse,

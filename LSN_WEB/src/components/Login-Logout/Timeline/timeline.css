@@ -1,0 +1,57 @@
+.profile {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10%;
+}
+
+.profile-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    text-align: center;
+    margin: 0 auto;
+    font-family: K2D, sans-serif;
+    text-transform: capitalize;
+}
+
+.profile-name a {
+    font-size: 115%;
+    padding: 0 0.5em;
+    text-decoration: blink;
+}
+
+.profile-event {
+    position: relative;
+}
+
+.event-name a {
+    text-decoration: blink;
+}
+
+.event-info {
+    text-align: justify;
+    font-size: 13px;
+    margin: 0 auto;
+    margin-right: 2em;
+}
+
+.group-name ul li {
+    list-style: none;
+    line-height: 1.5em;
+    letter-spacing: 2px;
+}
+
+.group-name ul li a {
+    text-decoration: blink;
+    font-family: 'Open-sans', K2D, sans-serif;
+    padding: 5px 10px;
+}
