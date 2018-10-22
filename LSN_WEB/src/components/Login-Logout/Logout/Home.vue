@@ -1,31 +1,34 @@
 <template>
   <b-container fluid class="containerPage p-0">
-       <b-navbar toggleable="md" type="dark" variant="info" class="navbar-header">
+    <div class="home-header">
 
-      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+        <b-navbar toggleable="md" type="dark" variant="info" class="navbar-header">
 
-      <b-navbar-brand href="/home" class="logo">LSN</b-navbar-brand>
+        <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+        <b-navbar-brand href="/home" class="logo">LSN</b-navbar-brand>
         <b-nav-form class="form_input">
           <b-form-input size="md" class="mr-md-5" type="text" placeholder="Search"/>
 
         </b-nav-form>
-      <b-collapse is-nav id="nav_collapse">
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-         <b-navbar-brand href="#">Profile</b-navbar-brand>
-         <b-navbar-brand href="/home">Home</b-navbar-brand>
+        <b-collapse is-nav id="nav_collapse">
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+          <b-navbar-brand href="#">Profile</b-navbar-brand>
+          <b-navbar-brand href="/home">Home</b-navbar-brand>
 
-          <b-nav-item-dropdown right>
-            <!-- Using button-content slot -->
-            <template slot="button-content">
-              <em><span class="caret"></span></em>
-            </template>
-            <b-dropdown-item href="#">Setting</b-dropdown-item>
-            <b-dropdown-item @click="logout">Signout</b-dropdown-item>
-          </b-nav-item-dropdown>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+            <b-nav-item-dropdown right>
+              <!-- Using button-content slot -->
+              <template slot="button-content">
+                <em><span class="caret"></span></em>
+              </template>
+              <b-dropdown-item href="#">Setting</b-dropdown-item>
+              <b-dropdown-item @click="logout">Signout</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
     <router-view></router-view>
     <!-- <div class="row">
       <div class="col-md-3 sidebar">
